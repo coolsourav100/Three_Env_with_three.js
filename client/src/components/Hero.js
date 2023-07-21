@@ -1,6 +1,4 @@
 import React from 'react';
-
-import ComputersCanvas  from './canvas/Computers';
 import VirtualModels from './canvas/VirtualModels';
 import { useNavigate } from 'react-router-dom';
 

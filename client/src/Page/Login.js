@@ -20,31 +20,37 @@ setToggle(!toggle)
   const submitHandler=async(e)=>{
     e.preventDefault();
     if(toggle){
-      await axios.post(`http://localhost:4000/auth/register`,{name:enterName,email:enteremail,password:enterpassword}).
-      then((res)=>{
+      try{
+      let res = await axios.post(`http://localhost:4000/auth/register`,{name:enterName,email:enteremail,password:enterpassword})
+      
         setToggle(!toggle)
         console.log(res)
-        if(res.status == 202){
+        if(res.status == 401){
           setErr(res.data)
         }else{
           setErr('')
         }
-      }).catch(err=>console.log(err))
-    
+      
+    }catch(err){(err)=>console.log(err)
+      }
     }else{
       console.log('Login')
-      await axios.post(`http://localhost:4000/auth/login`,{email:enteremail,password:enterpassword}).
-      then((res)=>{
+      try{
+      await axios.post(`http://localhost:4000/auth/login`,{email:enteremail,password:enterpassword})
+      
         console.log(res.data, 'kjkjkjjkjkjk')
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('playerId',res.data.playerId)
         setErr('')
         navigate('/home')
-      }).catch(err=>{
-        setErr(err.response.data)
-      })
-    }
       
+    }catch(err){(err)=>{
+        console.log(err)
+        window.alert(err)
+        setErr(err.response.data)
+      }
+    }
+  } 
   }
   return (
     <div>

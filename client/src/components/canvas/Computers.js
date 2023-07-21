@@ -1,11 +1,8 @@
 import React, { useEffect, useRef , useState } from 'react';
 import { Canvas ,useFrame} from '@react-three/fiber';
-import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
-import VirtualModels from './VirtualModels';
 import Room from './Room';
-import PlayersCanvas from './PlayerCanvas';
+
 
 
 

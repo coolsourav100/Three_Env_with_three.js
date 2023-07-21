@@ -27,7 +27,7 @@ exports.userLogin= async(req,res,next)=>{
       }
 
     }else{
-      res.status(400).json('User does not exists')
+      res.status(401).json('User does not exists')
     }
   }catch(err){
     res.status(500).json(err)
