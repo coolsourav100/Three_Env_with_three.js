@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .App-logo {
@@ -11,6 +12,14 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.chatbox{
+width: 25vw;
+position: absolute;
+z-index: 999;
+background: transparent;
+margin-top: -1000px;
+opacity: 0.5;
 }
 
 .App-header {

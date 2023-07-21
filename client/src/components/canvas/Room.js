@@ -2,8 +2,8 @@ import { useGLTF } from "@react-three/drei"
 // import { VirtualModels } from "./Computers"
 const Room =(props)=> {
   const { nodes, materials } = useGLTF("./room.glb")
-console.log(nodes)
-console.log(nodes)
+// console.log(nodes)
+// console.log(nodes)
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
