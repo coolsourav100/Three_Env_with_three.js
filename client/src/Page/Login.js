@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../assets/login.jpg'
 import axios from 'axios';
@@ -12,6 +12,9 @@ const Login = () => {
  const [enterpassword , setEnterPassword] = useState('')
  const [err , setErr] = useState('')
 
+ useEffect(()=>{
+
+ },[err])
   const toggleHandler=(e)=>{
     setErr('')
 setToggle(!toggle)
@@ -31,12 +34,12 @@ setToggle(!toggle)
           setErr('')
         }
       
-    }catch(err){(err)=>console.log(err)
+    }catch(err){console.log(err)
       }
     }else{
       console.log('Login')
       try{
-      await axios.post(`http://localhost:4000/auth/login`,{email:enteremail,password:enterpassword})
+      let res = await axios.post(`http://localhost:4000/auth/login`,{email:enteremail,password:enterpassword})
       
         console.log(res.data, 'kjkjkjjkjkjk')
         localStorage.setItem('token',res.data.token)
@@ -44,11 +47,11 @@ setToggle(!toggle)
         setErr('')
         navigate('/home')
       
-    }catch(err){(err)=>{
+    }catch(err){
         console.log(err)
         window.alert(err)
-        setErr(err.response.data)
-      }
+        // setErr(err)
+      
     }
   } 
   }

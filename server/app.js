@@ -20,7 +20,7 @@ app.use(bodyParser.json(),bodyParser.urlencoded({ extended: false }))
 app.use('/auth',userRouter)
 app.use('/player',playerRouter)
 
-mongoose.connect(`mongodb+srv://coolsourav100:Sourav1234@cluster1.syv6z7h.mongodb.net/3devn?retryWrites=true&w=majority`).then(()=>{
+mongoose.connect(`mongodb+srv://@cluster1.syv6z7h.mongodb.net/3devn?retryWrites=true&w=majority`).then(()=>{
 
   server.listen(4000,()=>{
     console.log('server running on 4000 and DB connected')
